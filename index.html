@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bulb toggler and Dark/Light theme</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .dark {
+        color: white;
+        background-color: rgb(56, 60, 64);
+      }
+      .light {
+        color: black;
+        background-color: aliceblue;
+      } 
+    </style>
+  </head>
+  <body id="body">
+    <h2 class="text-center  mt-5">Bulb Toggler</h2>
+    <div class="card shadow p-3 ms-auto me-auto mt-5" style="width: 18rem">
+      <div class="text-center">
+        <img src="./img/light_off.png" class="img-fluid mt-3" id="bulb_img"/>
+      </div>
+
+      <div class="text-center mt-3">
+        <button onclick="bulbon()" class="btn btn-success">ON</button>
+        <button onclick="bulboff()" class="btn btn btn-danger">OFF</button>
+      </div>
+
+      <div class="text-center mt-3">
+        <button class="btn btn-warning" onclick="changeTheme()">
+          Dark/Light🌒
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function bulbon() {
+        const bulbImg = document.getElementById("bulb_img");
+        bulbImg.src = "./img/light_on.png";
+      }
+
+      function bulboff() {
+        const bulbImg = document.getElementById("bulb_img");
+        bulbImg.src = "./img/light_off.png";
+      }
+
+      const bodyElement = document.getElementById("body");
+      let lightmod = false;
+
+      function changeTheme() {
+        if (lightmod == true) {
+          bodyElement.classList.add("dark");
+          bodyElement.classList.remove("light");
+          lightmod = false;
+        } else {
+          bodyElement.classList.remove("dark");
+          bodyElement.classList.add("light");
+          lightmod = true;
+        }
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
